@@ -1,0 +1,17 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo-image {
+  height: 4rem;
+  object-fit: contain;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0 2rem;
+}
