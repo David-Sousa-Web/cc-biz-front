@@ -68,3 +68,21 @@
 .submit-button:hover {
   background-color: #1f2937;
 }
+
+
+.msg_feedback {
+    background-color: white;
+    border-radius: 7px;
+    width: 100%;
+    padding: .7rem;
+
+    &.error {
+        background-color: #df3535;
+        border: 1px solid #df3535;
+        color: white;
+    }
+    &.warn {
+        background-color: #FFEDD5;
+        border: 1px solid #FFEDD5;   
+    }
+}
