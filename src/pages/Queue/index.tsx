@@ -1,19 +1,35 @@
 import { useEffect, useState } from "react";
 import Logo from "../../components/layout/logo";
 import { getFirstUserPosition } from "../../utils/getUserPositions";
+import { useNavigate } from "react-router-dom";
+
+const REFRESH_INTERVAL = 20000; // 20 segundos em ms
 
 export default function Queue() {
   const [position, setPosition] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPosition = async () => {
       const pos = await getFirstUserPosition();
-      setPosition(pos);
+
+      if (pos === null) {
+        navigate("/agradecimento");
+      } else {
+        setPosition(pos);
+      }
     };
 
+    // Executa a primeira vez ao montar
     fetchPosition();
-  }, []);
 
+    // Reexecuta a cada 2 minutos
+    const intervalId = setInterval(fetchPosition, REFRESH_INTERVAL);
+
+    // Limpa o intervalo ao desmontar
+    return () => clearInterval(intervalId);
+  }, [navigate]);
+  
   return (
     <div className="app-container">
       <div className="app-box">
