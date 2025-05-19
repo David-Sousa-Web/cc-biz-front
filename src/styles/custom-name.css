@@ -1,0 +1,9 @@
+.custom-name-input {
+  font-size: 32px;
+  font-weight: bold;
+  color: #888888;
+  border: none;
+  outline: none;
+  text-align: center;
+  width: 100%;  
+}

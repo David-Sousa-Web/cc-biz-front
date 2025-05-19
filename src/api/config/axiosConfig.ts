@@ -11,7 +11,7 @@ const api = axios.create({
 
 // Intercepta as requisições para incluir o token
 api.interceptors.request.use((config) => {
-  const token = Cookies.get('token');
+  const token = Cookies.get('cocatoken');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -26,9 +26,9 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       console.warn('Não autorizado.');
-      window.location.href = '/';
+      //window.location.href = '/';
     }
-
+    console.error(error)
     return Promise.reject(error);
   }
 );

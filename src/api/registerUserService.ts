@@ -6,12 +6,12 @@ export interface RegisterUser {
   cpf: string;
 }
 
-const Register = async(bodyReq: RegisterUser) => {
+const Register = async (bodyReq: RegisterUser) => {
   console.log('call function API');
   console.log(bodyReq)
   
   const response = await api.post('/register-user', bodyReq)
-
+  console.log(response)
   return response.data
 }
 
