@@ -1,0 +1,48 @@
+.Terms {
+  background-color: #2C2C2C99;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+
+  color: white;
+}
+
+.container_text {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.submit-button-terms {
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.submit-button-terms:hover {
+  color: #e41a1c;
+}

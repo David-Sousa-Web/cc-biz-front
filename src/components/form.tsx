@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import RegisterUserService from "../api/registerUserService";
 import Cookies from "js-cookie";
 import { AxiosError } from "axios";
+import { Terms } from "./layout/Terms/Terms";
 
 
 type ValidationErrorKeys = 'name' | 'email' | 'cpf';
@@ -122,68 +123,75 @@ const Form: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2 className="form-subtitle">Cadastro</h2>
-      <div className="form-group">
-        <label htmlFor="name">Nome completo</label>
-        <InputName 
-          id="name" 
-          value={formData.name} 
-          setValue={handleChangeForm}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Endereço de e-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChangeForm}
-          placeholder="exemplo@email.com"
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="cpf">CPF</label>
-        <InputCPF 
-          id="cpf"
-          value={formData.cpf}
-          setValue={handleChangeForm}
-          placeholder='000.000.000-00'
-          validationErrors={validationErrors}
-          setValidationErrors={setValidationErrors}
-        />
-      </div>
-
-      {errorsRender.length > 0 && (
-        <div className="msg_feedback error">
-          {errorsRender.map((item, idx)=> (
-            <p className="item" key={idx}>
-              <i className="bi bi-exclamation-circle"></i>
-              <span> {item}</span>
-            </p>
-          ))}
+    <>
+      <form onSubmit={handleSubmit}>
+        <h2 className="form-subtitle">Cadastro</h2>
+        <div className="form-group">
+          <label htmlFor="name">Nome completo</label>
+          <InputName 
+            id="name" 
+            value={formData.name} 
+            setValue={handleChangeForm}
+          />
         </div>
-      )}
+        <div className="form-group">
+          <label htmlFor="email">Endereço de e-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChangeForm}
+            placeholder="exemplo@email.com"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="cpf">CPF</label>
+          <InputCPF 
+            id="cpf"
+            value={formData.cpf}
+            setValue={handleChangeForm}
+            placeholder='000.000.000-00'
+            validationErrors={validationErrors}
+            setValidationErrors={setValidationErrors}
+          />
+        </div>
 
-      <div className="privacy-notice">
-        <p>
-          Ao se cadastrar, você concorda com os termos de nossa{" "}
-          <span className="highlight" onClick={handleShowTerms}>Política de Privacidade</span>.
-        </p>
-      </div>
-
-      <LocationNotice />
-      
-      <button type="submit" className="submit-button">
-        {loadingSubmit ? (
-          'Cadastrando...'
-        ) : (
-          'Continuar'
+        {errorsRender.length > 0 && (
+          <div className="msg_feedback error">
+            {errorsRender.map((item, idx)=> (
+              <p className="item" key={idx}>
+                <i className="bi bi-exclamation-circle"></i>
+                <span> {item}</span>
+              </p>
+            ))}
+          </div>
         )}
-      </button>
-    </form>
+
+        <div className="privacy-notice">
+          <p>
+            Ao se cadastrar, você concorda com os termos de nossa{" "}
+            <span className="highlight" onClick={handleShowTerms}>Política de Privacidade</span>.
+          </p>
+        </div>
+
+        <LocationNotice />
+        
+        <button type="submit" className="submit-button">
+          {loadingSubmit ? (
+            'Cadastrando...'
+          ) : (
+            'Continuar'
+          )}
+        </button>
+      </form>
+
+      {/* Termos */}
+      {showTerms && (
+        <Terms close={()=> setShowTerms(false)} />
+      )}
+    </>  
   );
 };
 

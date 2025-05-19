@@ -37,7 +37,8 @@
 }
 
 .privacy-notice .highlight {
-  font-weight: 500;
+  font-weight: bold;
+  color: black;
 }
 
 .location-notice {
@@ -68,7 +69,6 @@
 .submit-button:hover {
   background-color: #1f2937;
 }
-
 
 .msg_feedback {
     background-color: white;
