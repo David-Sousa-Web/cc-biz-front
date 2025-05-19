@@ -135,6 +135,7 @@ export default function CustomName() {
               placeholder="Nome" 
               maxLength={12}
               required
+              autoComplete="off"
             />
 
             <div></div>

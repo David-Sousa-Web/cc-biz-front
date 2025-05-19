@@ -173,7 +173,9 @@ const Form: React.FC = () => {
           <span className="highlight" onClick={handleShowTerms}>Política de Privacidade</span>.
         </p>
       </div>
+
       <LocationNotice />
+      
       <button type="submit" className="submit-button">
         {loadingSubmit ? (
           'Cadastrando...'
