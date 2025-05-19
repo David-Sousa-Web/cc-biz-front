@@ -50,7 +50,7 @@ export default function CustomName() {
       }
     }
       getGeoLocation();
-  }, []);
+  }, [formData]);
 
 
   function handleChangeForm(e: React.ChangeEvent<HTMLInputElement>) {
@@ -100,7 +100,7 @@ export default function CustomName() {
     try {
       const bodyReq = {... formData};
       console.log(bodyReq)
-      
+
       const response = await CreateCustomNameService.CreateCustomName(bodyReq);
 
       if(response.message === 'successful created Names') {
