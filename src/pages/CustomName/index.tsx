@@ -127,6 +127,8 @@ export default function CustomName() {
             <h1 className="main-title">Coloque o nome que aparecera na lata</h1>
 
             <div className="custom-name-wrapper">
+              <img src="src/assets/images/lata_silhueta.png" className="lata-bg" alt="lata" />
+
               <span className="input-outline">{formData.custom_name || 'Nome'}</span>
               <input 
                 className="custom-name-input"
