@@ -129,7 +129,7 @@ export default function CustomName() {
             <div className="custom-name-wrapper">
               <img src="src/assets/images/lata_silhueta.png" className="lata-bg" alt="lata" />
 
-              <span className="input-outline">{formData.custom_name || 'Nome'}</span>
+              <span className="input-outline">{(formData.custom_name || 'Nome').replace(/ /g, '\u00A0')}</span>
               <input 
                 className="custom-name-input"
                 id="custom_name"
