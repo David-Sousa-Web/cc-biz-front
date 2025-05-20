@@ -7,7 +7,7 @@ interface TermsProps {
 
 export function Terms({ close }: TermsProps) {
   return (
-    <div className="Terms">
+    <div className="Terms animate__animated animate__fadeInUp">
       <div className="container_text">
         <p>
           Termos e condições infinitas. Texto a ser enviado pelo cliente.
