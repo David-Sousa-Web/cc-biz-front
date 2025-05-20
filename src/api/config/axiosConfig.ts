@@ -25,12 +25,13 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      console.warn('Não autorizado.');
-      //window.location.href = '/';
+      console.warn('Token expirado ou inválido.');
+      Cookies.remove('cocatoken');
+      Cookies.remove('userIdCocaBiz');
+      window.location.href = '/';
     }
-    console.error(error)
     return Promise.reject(error);
   }
 );
 
-export default api;
+export default api
