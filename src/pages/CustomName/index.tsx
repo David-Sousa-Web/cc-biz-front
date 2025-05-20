@@ -126,17 +126,21 @@ export default function CustomName() {
           <form onSubmit={handleSubmit} className="custom-name-content">
             <h1 className="main-title">Coloque o nome que aparecera na lata</h1>
 
-            <input 
-              className="custom-name-input"
-              id="custom_name"
-              type="text"
-              value={formData.custom_name}
-              onChange={handleChangeName}
-              placeholder="Nome" 
-              maxLength={12}
-              required
-              autoComplete="off"
-            />
+            <div className="custom-name-wrapper">
+              <span className="input-outline">{formData.custom_name || 'Nome'}</span>
+              <input 
+                className="custom-name-input"
+                id="custom_name"
+                type="text"
+                value={formData.custom_name}
+                onChange={handleChangeName}
+                placeholder="Nome" 
+                maxLength={12}
+                required
+                autoComplete="off"
+                spellCheck={false}
+              />
+            </div>
 
             <div></div>
             <div></div>

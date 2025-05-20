@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Logo from "../../components/layout/logo";
 import { getFirstUserPosition } from "../../utils/getUserPositions";
 import { useNavigate } from "react-router-dom";
+import '../../styles/queue.css'
 
 const REFRESH_INTERVAL = 20000; // 20 segundos em ms
 
@@ -38,7 +39,7 @@ export default function Queue() {
           <h1 className="main-title">Seu nome irá aparecer em breve</h1>
           <div className="queue-content ">
             <h2 className="">Sua posição na fila:</h2>
-            <span className="">{position}</span>
+            <span className="number-queue">{position}</span>
             <p className="">Existem outros nomes antes do seu</p>
             <span className=""> Por favor aguarde</span>
           </div>

@@ -1,9 +1,52 @@
+@font-face {
+  font-family: 'Coke';
+  src: url(../assets/fonts/Coke-Regular.otf);
+}
+
+@font-face {
+  font-family: 'CokeOutline';
+  src: url(../assets/fonts/Coke-Outline.otf);
+}
+
+.custom-name-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  height: 60px; /* define uma altura base para alinhar ambos */
+}
+
 .custom-name-input {
-  font-size: 32px;
+  font-family: 'Coke';
+  font-size: 40px;
   font-weight: bold;
   color: #888888;
+  background: transparent;
   border: none;
   outline: none;
+  width: 100%;
+  height: 100%; /* usa a altura do wrapper */
   text-align: center;
-  width: 100%;  
+  position: relative;
+  z-index: 2;
+  line-height: 60px; /* centraliza verticalmente o texto */
+  padding: 0; /* remove espaçamento extra */
+}
+
+.input-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'CokeOutline';
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+  user-select: none;
+  line-height: 60px; /* centraliza o texto verticalmente */
 }
