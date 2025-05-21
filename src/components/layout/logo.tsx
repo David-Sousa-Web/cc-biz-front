@@ -1,10 +1,12 @@
 import React from "react";
 import "../../styles/Shared.css";
 
+import logoCoca from '../../assets/images/coca-cola-logo.png'
+
 const Logo: React.FC = () => (
   <div className="logo-container">
     <img
-      src="src/assets/images/coca-cola-logo.png"
+      src={logoCoca}
       alt="Coca-Cola"
       className="logo-image"
     />

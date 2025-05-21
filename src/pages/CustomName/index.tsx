@@ -7,6 +7,8 @@ import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+import silhuetaImage from '../../assets/images/lata_silhueta.png'
+
 export default function CustomName() {
   const navigate = useNavigate();
 
@@ -127,7 +129,7 @@ export default function CustomName() {
             <h1 className="main-title">Coloque o nome que aparecera na lata</h1>
 
             <div className="custom-name-wrapper">
-              <img src="src/assets/images/lata_silhueta.png" className="lata-bg" alt="lata" />
+              <img src={silhuetaImage} className="lata-bg" alt="lata" />
 
               <span className="input-outline">{(formData.custom_name || 'Nome').replace(/ /g, '\u00A0')}</span>
               <input 
