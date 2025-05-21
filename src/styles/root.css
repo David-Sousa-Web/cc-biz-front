@@ -11,6 +11,17 @@
   font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Coke';
+  src: url(../assets/fonts/Coke-Regular.otf);
+}
+
+@font-face {
+  font-family: 'CokeOutline';
+  src: url(../assets/fonts/Coke-Outline.otf);
+}
+
 :root {
   --font-primary: 'Trenda', sans-serif;
   --transition: 0.3s ease;

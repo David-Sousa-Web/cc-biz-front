@@ -1,13 +1,3 @@
-@font-face {
-  font-family: 'Coke';
-  src: url(../assets/fonts/Coke-Regular.otf);
-}
-
-@font-face {
-  font-family: 'CokeOutline';
-  src: url(../assets/fonts/Coke-Outline.otf);
-}
-
 .custom-name-wrapper {
   position: relative;
   width: 100%;
