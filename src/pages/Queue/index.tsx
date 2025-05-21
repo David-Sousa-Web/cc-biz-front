@@ -40,7 +40,7 @@ export default function Queue() {
           {position === 1 
             ? 
             <div className="queue-content ">
-              <h2 className="">É a sua vez!!</h2>
+              <h2 className="">Você é o proximo!</h2>
             </div> 
             : 
             <div className="queue-content ">
