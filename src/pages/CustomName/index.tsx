@@ -18,41 +18,49 @@ export default function CustomName() {
     user_longitude: 0
   })
 
-  useEffect(()=> {
+  useEffect(() => {
     function getGeoLocation() {
-      if("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition((position)=> {
-          // Coleta da geolocalização:
-          const geoLocation = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          }
-          
-          formData.user_latitude = geoLocation.latitude
-          formData.user_longitude = geoLocation.longitude
-        }, 
-        (error: GeolocationPositionError)=> {
-          // Tratamento de erros:
-          switch(error.code) {
-            case error.PERMISSION_DENIED:
-              console.log('Status: Permissão de localização foi negada. Para permitir o acesso, vá para as configurações do navegador e ative o acesso aos sensores.');
-              
-              break;
-            case error.POSITION_UNAVAILABLE:
-              console.error("Informação de localização indisponível.");
-              // Pode usar alert/toast para avisos ao usuario
-              break;
-            default:
-              console.log('Houve algum erro.');
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const geoLocation = {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            };
+
+            setFormData((prev) => ({
+              ...prev,
+              user_latitude: geoLocation.latitude,
+              user_longitude: geoLocation.longitude,
+            }));
+          },
+          (error) => {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                console.log('Permissão de localização negada.');
+                break;
+              case error.POSITION_UNAVAILABLE:
+                console.error("Localização indisponível.");
+                break;
+              default:
+                console.log('Erro desconhecido.');
             }
-        });
-      } 
-      else {
-          console.error("Geolocalização não é suportada pelo navegador.");
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 60000
+          }
+        );
+      } else {
+        console.error("Geolocalização não suportada pelo navegador.");
       }
     }
-      getGeoLocation();
-  }, [formData]);
+
+    getGeoLocation();
+  }, []);
+
+
 
 
   function handleChangeForm(e: React.ChangeEvent<HTMLInputElement>) {
@@ -137,6 +145,7 @@ export default function CustomName() {
               >
                 {(formData.custom_name || 'Nome').replace(/ /g, '\u00A0')}
               </span>
+
               <input 
                 className="custom-name-input"
                 id="custom_name"
@@ -149,14 +158,12 @@ export default function CustomName() {
                 required
                 autoComplete="off"
                 spellCheck={false}
+                autoCorrect="off"
+                autoCapitalize="off"
               />
             </div>
 
-            <div></div>
-            <div></div>
-            <div></div>
-
-            <button type="submit" className="submit-button">
+            <button type="submit" className="submit-button custom-name-button">
               Enviar
             </button>
           </form>
