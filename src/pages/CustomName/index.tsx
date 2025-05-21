@@ -7,7 +7,7 @@ import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-import silhuetaImage from '../../assets/images/lata_silhueta.png'
+import silhuetaImage from '../../assets/images/Lata Borda Preta.png'
 
 export default function CustomName() {
   const navigate = useNavigate();
@@ -131,14 +131,20 @@ export default function CustomName() {
             <div className="custom-name-wrapper">
               <img src={silhuetaImage} className="lata-bg" alt="lata" />
 
-              <span className="input-outline">{(formData.custom_name || 'Nome').replace(/ /g, '\u00A0')}</span>
+              <span
+                className="input-outline"
+                style={{ opacity: formData.custom_name.trim() === '' ? 0.5 : 1 }}
+              >
+                {(formData.custom_name || 'Nome').replace(/ /g, '\u00A0')}
+              </span>
               <input 
                 className="custom-name-input"
                 id="custom_name"
                 type="text"
                 value={formData.custom_name}
                 onChange={handleChangeName}
-                placeholder="Nome" 
+                placeholder="Nome"
+                minLength={3}
                 maxLength={12}
                 required
                 autoComplete="off"

@@ -35,15 +35,20 @@
   outline: none;
   background: transparent;
   z-index: 2;
-  color: #888888;
+  color: #ed1a3b;
   line-height: 1;
   padding: 0;
+}
+
+/* Estilo do placeholder */
+.custom-name-input::placeholder {
+  color: #ed1a3b;
 }
 
 .input-outline {
   z-index: 1;
   font-family: 'CokeOutline';
-  color: black;
+  color: white;
   pointer-events: none;
 }
 
