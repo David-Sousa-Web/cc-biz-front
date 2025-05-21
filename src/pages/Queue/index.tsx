@@ -4,7 +4,7 @@ import { getFirstUserPosition } from "../../utils/getUserPositions";
 import { useNavigate } from "react-router-dom";
 import '../../styles/queue.css'
 
-const REFRESH_INTERVAL = 5000; // 10 segundos em ms
+const REFRESH_INTERVAL = 5000; // 5 segundos em ms
 
 export default function Queue() {
   const [position, setPosition] = useState<number | null>(null);
